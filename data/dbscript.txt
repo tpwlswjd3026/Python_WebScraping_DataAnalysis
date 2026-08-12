@@ -1,14 +1,34 @@
 # Database 생성
 mysql -u root –p
-show databases;
-use mysql;
-create database python_db;
-create user 'python'@'%' identified by 'python';
-grant all privileges on python_db.* to 'python'@'%';
-flush privileges;
-select user, host from user;
-exit;
+    # database 목록 확인하기
+    show databases;
+    # mysql DB를 사용하겠다
+    use mysql;
+    # python_db DB를 만들겠다
+    create database python_db;
+    #생성후 DB 목록을 다시 확인하기
+    show databases;
+    #user는 python, password는 python 인 계정을 생성하겠다
+    create user 'python'@'%' identified by 'python';
+    # python 계정에게 python_db에 대한 권한 부여하기
+    grant all privileges on python_db.* to 'python'@'%';
+    # 준 권한이 바로 적용하기
+    flush privileges;
+    #유저가 생성되었는지 확인하기
+    select user, host from user;
+    exit;
 
 mysql -u python -p
-show grants for current_user;
-use python_db;
+    # 현재 python 계정의 권한 확인하기
+    show grants for current_user;
+    #python_db DB를 사용하겠다
+    use python_db;
+    # 테이블 목록 확인
+    show tables
+    # songs 테이블의 구조확인
+    desc songs;
+
+    select 곡명 from songs;
+    select 곡명,장르 from songs where 가수 = '방탄소년단';
+    select title,singer from songs100 where id < 10;
+    select id,title,singer,album from songs100 where album like '%OST%';
