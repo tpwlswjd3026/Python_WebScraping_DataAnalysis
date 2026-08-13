@@ -5,3 +5,5 @@ img/
 img.html
 *.jpg
 .env
+mp3/
+data/*xlsx
